@@ -151,7 +151,7 @@ flowchart TB
 |---|---|---|---|
 | Inbound | allow | TCP 443, 80 | 0.0.0.0/0 |
 | Inbound | allow | TCP 1024-65535 | 0.0.0.0/0 (odpowiedzi z internetu dla NAT) |
-| Outbound | allow | TCP 80 / 8080 | 10.0.11.0/24, 10.0.12.0/24 (ALB -> web) |
+| Outbound | allow | TCP 80 | 10.0.11.0/24, 10.0.12.0/24 (ALB -> web) |
 | Outbound | allow | TCP 443 | 0.0.0.0/0 (NAT -> internet) |
 | Outbound | allow | TCP 1024-65535 | 0.0.0.0/0 (odpowiedzi do użytkowników) |
 | Oba | deny | all | domyślnie |
@@ -160,9 +160,9 @@ flowchart TB
 
 | Kierunek | Reguła | Protokół / port | Źródło / cel |
 |---|---|---|---|
-| Inbound | allow | TCP 80 / 8080 | 10.0.1.0/24, 10.0.2.0/24 (z ALB) |
+| Inbound | allow | TCP 80 | 10.0.1.0/24, 10.0.2.0/24 (z ALB) |
 | Inbound | allow | TCP 1024-65535 | 0.0.0.0/0 (odpowiedzi z NAT, endpointów, bazy) |
-| Outbound | allow | TCP 3306 / 5432 | 10.0.21.0/24, 10.0.22.0/24 |
+| Outbound | allow | TCP 5432 | 10.0.21.0/24, 10.0.22.0/24 |
 | Outbound | allow | TCP 443 | 0.0.0.0/0 (NAT i VPC endpointy) |
 | Outbound | allow | TCP 1024-65535 | 10.0.1.0/24, 10.0.2.0/24 (odpowiedzi do ALB) |
 | Oba | deny | all | domyślnie |
@@ -171,7 +171,7 @@ flowchart TB
 
 | Kierunek | Reguła | Protokół / port | Źródło / cel |
 |---|---|---|---|
-| Inbound | allow | TCP 3306 / 5432 | 10.0.11.0/24, 10.0.12.0/24 |
+| Inbound | allow | TCP 5432 | 10.0.11.0/24, 10.0.12.0/24 |
 | Outbound | allow | TCP 1024-65535 | 10.0.11.0/24, 10.0.12.0/24 |
 | Oba | deny | all | domyślnie |
 
