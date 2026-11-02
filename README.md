@@ -5,7 +5,7 @@ flowchart TB
     Admin(["Administrator"])
     Mail(["E-mail admina"])
 
-    subgraph AWS["AWS Region np. eu-central-1"]
+    subgraph AWS["AWS Region"]
         WAF["AWS WAF"]
         ACM["ACM - certyfikat TLS"]
         KMS["KMS - klucze szyfrujące"]
@@ -66,8 +66,8 @@ flowchart TB
     ACM -.-> ALB
     ALB -->|HTTP z SG-ALB| EC2A
     ALB -->|HTTP z SG-ALB| EC2B
-    EC2A -->|MySQL/PostgreSQL TLS z SG-WEB| RDSP
-    EC2B -->|MySQL/PostgreSQL TLS z SG-WEB| RDSP
+    EC2A -->|PostgreSQL TLS z SG-WEB| RDSP
+    EC2B -->|PostgreSQL TLS z SG-WEB| RDSP
     RDSP <-->|replikacja synchroniczna| RDSS
     RDSP -.->|failover| EC2A
 
